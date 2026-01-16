@@ -9,7 +9,7 @@ import MainWeather from "./apps/weather/MainWeather";
 
 function App() {
   return (
-    <>
+    <div className="bg-[#010101] h-screen w-screen flex">
       <AniGif />
       <Clock />
       <ComputerStats />
@@ -18,7 +18,7 @@ function App() {
       <Search />
       <TodoList />
       <MainWeather />
-    </>
+    </div>
   );
 }
 
