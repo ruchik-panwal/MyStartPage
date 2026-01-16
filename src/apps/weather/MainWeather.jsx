@@ -1,5 +1,5 @@
 function MainWeather() {
-    return <></>
+    return <div className="bg-warm-sand"></div>
 }
 
 export default MainWeather;

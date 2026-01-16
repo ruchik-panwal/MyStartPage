@@ -1,5 +1,5 @@
 function ComputerStats(){
-    return <></>
+    return <div className="bg-lemon-chiffon"></div>
 }
 
 export default ComputerStats;

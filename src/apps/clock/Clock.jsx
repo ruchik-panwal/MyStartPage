@@ -1,5 +1,5 @@
 function Clock(){
-    return <></>
+    return <div className="bg-apricot-sorbet"></div>
 }
 
 export default Clock;

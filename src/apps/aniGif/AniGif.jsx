@@ -1,5 +1,5 @@
 function AniGif(){
-    return <></>
+    return <div className="bg-petal-pink"></div>
 }
 
 export default AniGif;

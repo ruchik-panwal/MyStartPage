@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+/* Temporary colors */
+@theme {
+  --color-petal-pink: #fce4ec;
+  --color-apricot-sorbet: #fff3e0;
+  --color-lemon-chiffon: #fffde7;
+  --color-mint-cream: #e8f5e9;
+  --color-cloud-blue: #e3f2fd;
+  --color-lavender-mist: #f3e5f5;
+  --color-frosted-teal: #e0f2f1;
+  --color-warm-sand: #efebe9;
+}
