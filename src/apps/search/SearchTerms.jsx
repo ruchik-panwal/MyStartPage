@@ -4,7 +4,7 @@ function SearchTerms({getTerm}) {
   return (
     <div className="w-full h-full border overflow-scroll overflow-x-hidden">
       {terms.map(
-        (term, ind) => term.name.includes(getTerm) && <div key={ind}>{term.name}</div>,
+        (term, ind) => term.name.toLowerCase().includes(getTerm.toLowerCase()) && <div key={ind}>{term.name}</div>,
       )}
     </div>
   );
