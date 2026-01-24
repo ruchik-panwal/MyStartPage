@@ -1,11 +1,6 @@
-import { useState } from "react";
-import { terms } from "./terms";
-
-function SearchTerms({ getTerm }) {
-  const [select, setSelect] = useState(0);
-
+function SearchTerms({ getTerm, setSelectState, selectState, terms }) {
   function setSelectFunc(val) {
-    setSelect(val);
+    setSelectState(val);
   }
 
   return (
@@ -18,7 +13,7 @@ function SearchTerms({ getTerm }) {
           <TermButton
             key={ind}
             term={term}
-            isSelected={ind == select}
+            isSelected={ind == selectState}
             onSelect={() => setSelectFunc(ind)}
           />
         ))}
@@ -27,9 +22,14 @@ function SearchTerms({ getTerm }) {
 }
 
 function TermButton({ term, ind, onSelect, isSelected }) {
+  function handleClick() {
+    window.open(term.link);
+  }
+
   return (
     <button
       onMouseEnter={onSelect}
+      onClick={handleClick}
       className={`flex justify-between items-center ${isSelected ? "bg-black" : "bg-white"}`}
     >
       <div>
