@@ -34,6 +34,7 @@ function Search() {
 
   function setTerm(val) {
     setMyTerm(val);
+    setSelect(0);
   }
 
   return (
