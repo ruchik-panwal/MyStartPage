@@ -24,6 +24,7 @@ function SearchTerms({ getTerm, setSelectState, selectState, terms }) {
 function TermButton({ term, ind, onSelect, isSelected }) {
   function handleClick() {
     window.open(term.link);
+    term.count = term.count + 1;
   }
 
   return (

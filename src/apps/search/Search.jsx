@@ -23,6 +23,7 @@ function Search() {
         const selectedTerm = filtered[select];
         if (selectedTerm) {
           window.open(selectedTerm.link, "_blank");
+          filtered.count = filtered.count + 1;
         }
       }
     };
