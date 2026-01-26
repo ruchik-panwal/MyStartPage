@@ -216,4 +216,14 @@ export const terms = [
     link: "https://www.google.com/search?q=",
     logo: "googleSearchLogo.png",
   },
+  {
+    name: "Scientific Calculator",
+    link: "https://www.desmos.com/scientific",
+    logo: "desmosLogo.png"
+  },
+  {
+    name: "Overleaf [Latex]",
+    link: "https://www.overleaf.com/project",
+    logo: "overleafLogo.png"
+  }
 ];

@@ -38,7 +38,7 @@ function Search() {
   }
 
   return (
-    <div className="bg-lavender-mist h-full w-full p-5 gap-3 flex flex-col">
+    <div className="bg-containerBg h-full w-full p-5 gap-3 flex flex-col rounded-[8px]">
       {/* Taking Input from the user*/}
       <SearchBar termSetter={(val) => setTerm(val)} />
       {/* Giving the input for filtering*/}
