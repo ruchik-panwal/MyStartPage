@@ -1,5 +1,5 @@
 function Todolist() {
-    return <div className="bg-frosted-teal h-full w-full"></div>
+    return <div className="bg-containerBg h-full w-full rounded-[10px]"></div>
 }
 
 export default Todolist;

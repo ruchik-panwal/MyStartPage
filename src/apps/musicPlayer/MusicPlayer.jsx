@@ -1,5 +1,5 @@
 function MusicPlayer(){
-    return <div className="bg-cloud-blue h-full w-full"></div>
+    return <div className="bg-containerBg h-full w-full rounded-[10px]"></div>
 }
 
 export default MusicPlayer;

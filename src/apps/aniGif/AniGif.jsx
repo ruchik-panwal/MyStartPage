@@ -1,5 +1,5 @@
 function AniGif(){
-    return <div className="bg-petal-pink h-full w-full"></div>
+    return <div className="bg-containerBg h-full w-full rounded-[10px]"></div>
 }
 
 export default AniGif;

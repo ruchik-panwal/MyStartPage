@@ -9,14 +9,14 @@ import MainWeather from "./apps/weather/MainWeather";
 
 function App() {
   return (
-    <div className="flex bg-[#010101] h-screen w-screen box-border p-1.25 gap-1.25">
-      <div className="flex-1/4 gap-1.25">
+    <div className="flex bg-[#010101] h-screen w-screen box-border p-[10px] gap-[10px]">
+      <div className="flex-1/4 gap-[10px] ">
         <Search />
       </div>
 
-      <div className="flex flex-3/4 flex-col gap-1.25">
-        <div className="flex flex-2/10 gap-1.25">
-          <div className="flex-2/3">
+      <div className="flex flex-3/4 flex-col gap-[10px]">
+        <div className="flex flex-2/10 gap-[10px]">
+          <div className="flex-2/3 ">
             <ComputerStats />
           </div>
           <div className="flex-1/3">
@@ -24,8 +24,8 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-8/10 gap-1.25">
-          <div className="flex-1/3 flex flex-col gap-1.25">
+        <div className="flex flex-8/10 gap-[10px]">
+          <div className="flex-1/3 flex flex-col gap-[10px]">
             <div className="flex-1">
               <TodoList />
             </div>
@@ -34,12 +34,12 @@ function App() {
             </div>
           </div>
 
-          <div className="flex-2/3 flex flex-col gap-1.25">
+          <div className="flex-2/3 flex flex-col gap-[10px]">
             <div className="flex-2/3">
               <GoogleCalender />
             </div>
 
-            <div className="flex flex-1/3 gap-1.25">
+            <div className="flex flex-1/3 gap-[10px]">
               <div className="flex-1">
                 <MainWeather />
               </div>
