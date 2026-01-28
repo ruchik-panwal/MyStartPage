@@ -227,8 +227,8 @@ export const terms = [
     logo: "overleafLogo.png",
   },
   {
-    name: "Linear Algebra Submission"
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSf7lMJ5XdxgfaTV5e3s2MW14KU3HrFORAAlgEpVAt8s12kq1A/viewform"
-    logo: "collegeLogo.png"
-  }
+    name: "Linear Algebra Submission",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSf7lMJ5XdxgfaTV5e3s2MW14KU3HrFORAAlgEpVAt8s12kq1A/viewform",
+    logo: "collegeLogo.png",
+  },
 ];
