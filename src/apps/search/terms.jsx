@@ -219,11 +219,16 @@ export const terms = [
   {
     name: "Scientific Calculator",
     link: "https://www.desmos.com/scientific",
-    logo: "desmosLogo.png"
+    logo: "desmosLogo.png",
   },
   {
     name: "Overleaf [Latex]",
     link: "https://www.overleaf.com/project",
-    logo: "overleafLogo.png"
+    logo: "overleafLogo.png",
+  },
+  {
+    name: "Linear Algebra Submission"
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSf7lMJ5XdxgfaTV5e3s2MW14KU3HrFORAAlgEpVAt8s12kq1A/viewform"
+    logo: "collegeLogo.png"
   }
 ];
