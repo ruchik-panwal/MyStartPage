@@ -9,7 +9,7 @@ import MainWeather from "./apps/weather/MainWeather";
 
 function App() {
   return (
-    <div className="flex bg-[#010101] h-screen w-screen box-border p-2.5 gap-2.5">
+    <div className="flex bg-bgBlack h-screen w-screen box-border p-2.5 gap-2.5">
       <div className="flex-1/5 gap-2.5 ">
         <Search />
       </div>
