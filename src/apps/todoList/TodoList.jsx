@@ -75,7 +75,7 @@ function Todolist() {
       .to(
         todoRef.current,
         {
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.inOut",
         },
         "-=0.5",
@@ -86,9 +86,8 @@ function Todolist() {
       {
         display: "flex",
         height: "60px",
-        duration: 0.5,
-      },
-      "<",
+        duration: 0.2,
+      }
     ); // "<" makes it start at the same time as the previous animation
   });
 
@@ -96,26 +95,25 @@ function Todolist() {
   const outAnimation = contextSafe(() => {
     const tl = gsap.timeline();
 
-    tl.to(todoRef.current, {
-      padding: "0px",
-      duration: 0.5,
+    tl.to(todoBtnRef.current, {
+      height: "0px",
+      duration: 0.3,
       ease: "power2.in",
-    });
-
-    tl.to(
-      todoBtnRef.current,
-      {
-        height: "0px",
-        duration: 0.5,
-        ease: "power2.in",
-      },
-      "<",
-    )
+    })
       .to(todoBtnRef.current, {
         display: "none",
         duration: 0.02,
         ease: "power2.in",
       })
+      .to(
+        todoRef.current,
+        {
+          padding: "0px",
+          duration: 0.2,
+          ease: "power2.in",
+        },
+        "<",
+      )
       .to(todoRef.current, {
         backgroundColor: "#121212",
         duration: 0.01,
@@ -131,7 +129,9 @@ function Todolist() {
     >
       {/* TodoList Container */}
       <div className="flex flex-col items-center bg-containerBg h-full w-full p-3 rounded-[15px] overflow-y-scroll">
-        <div className="text-gray-400 text-[1rem]">T O D O&nbsp;&nbsp;&nbsp;L I S T</div>
+        <div className="text-gray-400 text-[1rem]">
+          T O D O&nbsp;&nbsp;&nbsp;L I S T
+        </div>
 
         {todos.map((todo, ind) => {
           return (
