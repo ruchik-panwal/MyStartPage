@@ -1,7 +1,7 @@
 export function AddBtn({ addTodo }) {
   return (
     <button
-      className="flex-1/2 h-full w-full rounded-[15px] bg-[#498F4C] text-mainWhite cursor-pointer"
+      className="flex-1/2 h-full w-full rounded-[15px] text-[#34c85a] bg-mainWhite cursor-pointer border border-[#34c85a] hover:text-mainWhite hover:bg-[#34c85a]"
       onClick={() => addTodo()}
     >
       Add
@@ -9,10 +9,12 @@ export function AddBtn({ addTodo }) {
   );
 }
 
-export function ClearBtn({clrTodo}) {
+export function ClearBtn({ clrTodo }) {
   return (
-    <button className="flex-1/2 h-full w-full rounded-[15px] text-mainWhite bg-[#B46B6B] cursor-pointer"
-    onClick={() => clrTodo()}>
+    <button
+      className="flex-1/2 h-full w-full rounded-[15px] text-mainWhite bg-[#ff7575] hover:bg-[#ff3e3e] cursor-pointer"
+      onClick={() => clrTodo()}
+    >
       Clear
     </button>
   );
