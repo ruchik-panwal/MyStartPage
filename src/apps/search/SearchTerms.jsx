@@ -48,10 +48,16 @@ function SearchTerms({ getTerm, setSelectState, selectState, terms }) {
 function TermButton({ term, ind, onSelect, isSelected }) {
   function handleClick() {
     if (term.name === "Search Google") {
-      window.open(
-        `https://www.google.com/search?q=${encodeURIComponent(getTerm)}`,
-        "_blank",
-      );
+      const isDomain = /^([a-z0-9|-]+\.)+[a-z]{2,}(\/.*)?$/i.test(myTerm);
+
+      if (isDomain) {
+        window.open(`https://${myTerm}`, "_blank");
+      } else {
+        window.open(
+          `https://www.google.com/search?q=${encodeURIComponent(myTerm)}`,
+          "_blank",
+        );
+      }
     } else {
       window.open(term.link, "_blank");
     }

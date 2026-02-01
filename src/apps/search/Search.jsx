@@ -7,7 +7,6 @@ function Search() {
   const [myTerm, setMyTerm] = useState("");
   const [select, setSelect] = useState(0);
 
-  // 1. Memoize filtered list so it only updates when myTerm or terms change
   const filtered = useMemo(() => {
     const list = terms.filter((t) =>
       t.name.toLowerCase().includes(myTerm.toLowerCase()),
@@ -36,11 +35,16 @@ function Search() {
         const selectedTerm = filtered[select];
         if (selectedTerm) {
           if (selectedTerm.name === "Search Google") {
-            // FIXED: Changed getTerm to myTerm
-            window.open(
-              `https://www.google.com/search?q=${encodeURIComponent(myTerm)}`,
-              "_blank",
-            );
+            const isDomain = /^([a-z0-9|-]+\.)+[a-z]{2,}(\/.*)?$/i.test(myTerm);
+
+            if (isDomain) {
+              window.open(`https://${myTerm}`, "_blank");
+            } else {
+              window.open(
+                `https://www.google.com/search?q=${encodeURIComponent(myTerm)}`,
+                "_blank",
+              );
+            }
           } else {
             window.open(selectedTerm.link, "_blank");
           }
@@ -50,12 +54,11 @@ function Search() {
 
     window.addEventListener("keydown", handleGlobalKeyDown);
     return () => window.removeEventListener("keydown", handleGlobalKeyDown);
-    // select is added here to ensure the Enter key knows which index is active
   }, [myTerm, select, filtered]);
 
   function handleSetTerm(val) {
     setMyTerm(val);
-    setSelect(0); // Reset selection when user types
+    setSelect(0);
   }
 
   return (
@@ -65,7 +68,6 @@ function Search() {
         getTerm={myTerm}
         setSelectState={setSelect}
         selectState={select}
-        // Pass the already filtered list to the child component
         terms={filtered}
       />
     </div>
