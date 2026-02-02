@@ -15,6 +15,7 @@ function Todolist() {
   const bottomRef = useRef(null);
   const todoRef = useRef();
   const todoBtnRef = useRef();
+  const tlRef = useRef(); //tracking timeline
 
   const scrollToBottom = () => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -61,12 +62,17 @@ function Todolist() {
 
   // 2. Hover In: Padding starts, then Color follows
   const inAnimation = contextSafe(() => {
-    const tl = gsap.timeline();
+    // STOP any running animation first
+    if (tlRef.current) tlRef.current.kill();
 
-    tl.to(todoRef.current, {
-      backgroundColor: "#e7e9e8",
-      duration: 0.01,
-    })
+    // Assign new timeline to the ref
+    tlRef.current = gsap.timeline();
+
+    tlRef.current
+      .to(todoRef.current, {
+        backgroundColor: "#e7e9e8",
+        duration: 0.01,
+      })
       .to(todoRef.current, {
         padding: "6px",
         duration: 0.3,
@@ -79,27 +85,33 @@ function Todolist() {
           ease: "power2.inOut",
         },
         "-=0.5",
-      ); // "-=0.1" starts the color slightly before padding finishes
+      );
 
-    tl.to(
+    tlRef.current.to(
       todoBtnRef.current,
       {
-        display: "flex",
+        display: "flex", // Ensure this is set so height animates visibly
         height: "60px",
         duration: 0.2,
-      }
-    ); // "<" makes it start at the same time as the previous animation
+      },
+      "<", // Start at same time as previous
+    );
   });
 
-  // 3. Hover Out: Reset everything immediately
+  // 3. Hover Out
   const outAnimation = contextSafe(() => {
-    const tl = gsap.timeline();
+    // STOP any running animation first
+    if (tlRef.current) tlRef.current.kill();
 
-    tl.to(todoBtnRef.current, {
-      height: "0px",
-      duration: 0.3,
-      ease: "power2.in",
-    })
+    // Assign new timeline to the ref
+    tlRef.current = gsap.timeline();
+
+    tlRef.current
+      .to(todoBtnRef.current, {
+        height: "0px",
+        duration: 0.3,
+        ease: "power2.in",
+      })
       .to(todoBtnRef.current, {
         display: "none",
         duration: 0.02,
@@ -114,10 +126,14 @@ function Todolist() {
         },
         "<",
       )
-      .to(todoRef.current, {
-        backgroundColor: "#121212",
-        duration: 0.01,
-      }); // "<" makes it start at the same time as the previous animation
+      .to(
+        todoRef.current,
+        {
+          backgroundColor: "#121212",
+          duration: 0.01,
+        },
+        "<",
+      ); // Synced up
   });
 
   return (
