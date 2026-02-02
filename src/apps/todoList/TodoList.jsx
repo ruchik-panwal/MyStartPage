@@ -75,7 +75,7 @@ function Todolist() {
       })
       .to(todoRef.current, {
         padding: "6px",
-        duration: 0.3,
+        duration: 0.5,
         ease: "power2.out",
       })
       .to(
