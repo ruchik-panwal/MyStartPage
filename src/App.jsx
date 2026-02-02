@@ -15,38 +15,38 @@ function App() {
       </div>
 
       <div className="flex flex-4/5 flex-col gap-2.5">
-        <div className="flex flex-2/10 gap-2.5">
-          <div className="flex-2/3 ">
-            <ComputerStats />
-          </div>
-          <div className="flex-1/3">
-            <Clock />
-          </div>
-        </div>
-
         <div className="flex flex-8/10 gap-2.5">
           <div className="flex-1/3 flex flex-col gap-2.5">
             <div className="flex-1">
               <TodoList />
             </div>
             <div className="flex-1">
-              <AniGif />
+              <MainWeather />
             </div>
           </div>
 
-          <div className="flex-2/3 flex flex-col gap-2.5">
+          <div className="flex-2/3 flex  gap-2.5">
             <div className="flex-2/3">
               <GoogleCalender />
             </div>
 
-            <div className="flex flex-1/3 gap-2.5">
-              <div className="flex-1">
-                <MainWeather />
+            <div className="flex flex-col flex-1/3 gap-2.5">
+              <div className="">
+                <AniGif />
               </div>
-              <div className="flex-1">
+              <div className="h-full">
                 <MusicPlayer />
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="flex flex-2/10 gap-2.5">
+          <div className="flex-2/3 ">
+            <ComputerStats />
+          </div>
+          <div className="flex-1/3">
+            <Clock />
           </div>
         </div>
       </div>
