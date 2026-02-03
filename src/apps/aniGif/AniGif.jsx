@@ -21,17 +21,17 @@ function AniGif() {
   }
 
   return (
-    <div className="relative flex flex-col bg-containerBg rounded-[10px] overflow-hidden">
+    <div className="relative flex flex-col rounded-[10px] overflow-hidden items-center">
       <img
         src={pinData.urls[number]}
         alt={`Pin ${number}`}
         className="h-full w-full object-cover max-h-100"
       />
+      <div className="absolute bg-white h-full w-full mix-blend-difference"></div>
       <button
         onClick={numSetter}
-        className="absolute bottom-2 left-2 bg-white p-2 rounded shadow"
-      >
-        change
+        className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-2 mix-blend-difference hover:cursor-pointer"
+      ><p className="">Sike</p>
       </button>
     </div>
   );
