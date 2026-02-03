@@ -140,7 +140,7 @@ function Todolist() {
     <div
       onMouseEnter={inAnimation}
       onMouseLeave={outAnimation}
-      className="flex flex-col gap-2 bg-mainWhite h-87.5 w-full rounded-[15px] overflow-hidden box-border"
+      className="flex flex-col gap-2  h-87.5 w-full rounded-[15px] overflow-hidden box-border"
       ref={todoRef}
     >
       {/* TodoList Container */}
