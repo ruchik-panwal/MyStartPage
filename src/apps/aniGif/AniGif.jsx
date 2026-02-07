@@ -16,6 +16,7 @@ function AniGif() {
   const btnRef = useRef();
   const txtRef = useRef();
   const tlRef = useRef();
+  const containerTlRef = useRef();
   const { contextSafe } = useGSAP({ scope: contanerRef });
 
   useEffect(() => {
@@ -33,7 +34,6 @@ function AniGif() {
   const inAnimation = contextSafe(() => {
     if (tlRef.current) tlRef.current.kill();
 
-    // Assign new timeline to the ref
     tlRef.current = gsap.timeline();
 
     tlRef.current
@@ -53,7 +53,6 @@ function AniGif() {
   const outAnimation = contextSafe(() => {
     if (tlRef.current) tlRef.current.kill();
 
-    // Assign new timeline to the ref
     tlRef.current = gsap.timeline();
 
     tlRef.current
@@ -70,9 +69,42 @@ function AniGif() {
       });
   });
 
+  const containerAnimation = contextSafe(() => {
+    if (containerTlRef.current) containerTlRef.current.kill();
+
+    const w = contanerRef.current.offsetWidth;
+    console.log(w);
+
+    const nextIndex = number >= pinData.total - 1 ? 0 : number + 1;
+    const ratio =
+      pinData.images[nextIndex].width / pinData.images[nextIndex].height;
+    console.log(ratio);
+
+    const calculatedHeight = w / ratio;
+    const conHeight = Math.min(calculatedHeight, 480) + "px";
+
+    containerTlRef.current = gsap.timeline();
+
+    containerTlRef.current
+      .to(loaderRef.current, {
+        height: "100%",
+        duration: 0.3,
+        onComplete: numSetter,
+      })
+      .to(contanerRef.current, {
+        height: conHeight,
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+      .to(loaderRef.current, {
+        height: "0%",
+        duration: 0.3,
+      });
+  });
+
   return (
     <div
-      className="relative flex flex-col rounded-[10px] overflow-hidden items-center box-border"
+      className="relative flex flex-col rounded-[10px] overflow-hidden items-center box-border max-h-120"
       onMouseEnter={inAnimation}
       onMouseLeave={outAnimation}
       ref={contanerRef}
@@ -80,11 +112,14 @@ function AniGif() {
       <img
         src={pinData.images[number].url}
         alt={`Pin ${number}`}
-        className="h-full w-full object-cover max-h-100 rounded-none"
+        className="h-full w-full object-cover rounded-none"
       />
-      <div className="absolute bg-white h-full w-full mix-blend-difference rounded-none "></div>
+      <div
+        className="absolute bg-white h-full w-full mix-blend-difference rounded-none cursor-pointer"
+        onClick={() => window.open(pinData.images[number].url, "_blank")}
+      ></div>
       <button
-        onClick={numSetter}
+        onClick={containerAnimation}
         className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden bg-white rounded-[5px] p-2 mix-blend-difference hover:cursor-pointer"
         ref={btnRef}
       >
@@ -95,6 +130,10 @@ function AniGif() {
           Sike
         </p>
       </button>
+      <div
+        className="absolute bottom-0 bg-mainWhite w-full"
+        ref={loaderRef}
+      ></div>
     </div>
   );
 }
